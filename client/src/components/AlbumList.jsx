@@ -1,9 +1,20 @@
 import React from 'react';
+import AlbumListEntry from './AlbumListEntry.jsx';
 
-const AlbumList = (props) => (
-    <div>
-      <h4>Display the albums here :)</h4>
-    </div>
-  );
+class AlbumList extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <div>
+        {this.props.albums.map((album, i) => {
+          return <AlbumListEntry key={i} album={album} />
+        })}
+      </div>
+    );
+  }
+}
 
 export default AlbumList;
